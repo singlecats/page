@@ -24,7 +24,7 @@ class Img{
 		//验证码
 		$code=$this->code;
 		$width=($this->width/strlen($code));
-		$offset=$width/3.5;
+		$offset=($width-imagefontwidth($fontSize))/2;
 		for($i=0;$i<strlen($code);$i++){
 			$fontColor=imagecolorallocate($handle, rand(0,120), rand(0,120), rand(0,120));
 			imagechar($handle, $fontSize, $i*$width+$offset,rand(2,$this->height-imagefontheight($fontSize)), $code{$i}, $fontColor);
